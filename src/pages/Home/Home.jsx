@@ -25,8 +25,8 @@ const Home = () => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
-            const remaining = users.filter(user=> user._id !== _id)
-            setUsers(remaining)
+            const remaining = users.filter((user) => user._id !== _id);
+            setUsers(remaining);
           });
       } else if (
         /* Read more about handling dismissals below */
@@ -70,10 +70,12 @@ const Home = () => {
                       size={20}
                     />
                   </button>
-                  <AiOutlineEdit
-                    className="text-primary cursor-pointer"
-                    size={20}
-                  />
+                  <Link to={`/updateUser/${user._id}`}>
+                    <AiOutlineEdit
+                      className="text-primary cursor-pointer"
+                      size={20}
+                    />
+                  </Link>
                 </td>
               </tr>
             ))}
