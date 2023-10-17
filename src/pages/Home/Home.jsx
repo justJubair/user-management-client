@@ -17,7 +17,7 @@ const Home = () => {
       reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://user-management-server-7wbmovk4y-jubair-ahmeds-projects.vercel.app/users/${_id}`, {
+        fetch(`https://user-management-server-89shlupxx-jubair-ahmeds-projects.vercel.app/users/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

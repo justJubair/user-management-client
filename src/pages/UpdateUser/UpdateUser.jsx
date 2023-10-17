@@ -14,7 +14,7 @@ const UpdateUser = () => {
         const email = form.email.value;
         const password = form.password.value;
         const user = {name, email, gender, role, password}
-        fetch(`https://user-management-server-7wbmovk4y-jubair-ahmeds-projects.vercel.app/users/${loadedUser._id}`, {
+        fetch(`https://user-management-server-89shlupxx-jubair-ahmeds-projects.vercel.app/users/${loadedUser._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

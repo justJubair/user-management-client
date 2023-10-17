@@ -11,7 +11,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                loader: ()=> fetch("https://user-management-server-7wbmovk4y-jubair-ahmeds-projects.vercel.app/users"),
+                loader: ()=> fetch("https://user-management-server-89shlupxx-jubair-ahmeds-projects.vercel.app/users"),
                 element: <Home/>
             },
             {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/updateUser/:id",
-                loader: ({params})=> fetch(`https://user-management-server-7wbmovk4y-jubair-ahmeds-projects.vercel.app/users/${params.id}`),
+                loader: ({params})=> fetch(`https://user-management-server-89shlupxx-jubair-ahmeds-projects.vercel.app/users/${params.id}`),
                 element: <UpdateUser/>
             }
         ]
