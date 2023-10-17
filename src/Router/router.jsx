@@ -11,7 +11,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                loader: ()=> fetch("http://localhost:5000/users"),
+                loader: ()=> fetch("https://user-management-server-7wbmovk4y-jubair-ahmeds-projects.vercel.app/users"),
                 element: <Home/>
             },
             {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/updateUser/:id",
-                loader: ({params})=> fetch(`http://localhost:5000/users/${params.id}`),
+                loader: ({params})=> fetch(`https://user-management-server-7wbmovk4y-jubair-ahmeds-projects.vercel.app/users/${params.id}`),
                 element: <UpdateUser/>
             }
         ]
