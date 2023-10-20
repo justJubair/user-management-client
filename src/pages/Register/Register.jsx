@@ -12,7 +12,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const user = {name, email, gender, role, password}
-    fetch("https://user-management-server-89shlupxx-jubair-ahmeds-projects.vercel.app/users", {
+    fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
             "content-type": "application/json"

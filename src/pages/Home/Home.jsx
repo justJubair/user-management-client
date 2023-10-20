@@ -2,10 +2,22 @@ import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
 const Home = () => {
-  const loadedData = useLoaderData();
-  const [users, setUsers] = useState(loadedData);
+  // const loadedData = useLoaderData();
+  // const [users, setUsers] = useState(loadedData);
 
+  const {data:users, isPending}= useQuery({
+    queryKey: ["users"],
+    queryFn: async()=>{
+      const res = await fetch("http://localhost:5000/users")
+      return res.json()
+    }
+  })
+
+  if(isPending){
+    return <p>loading...</p>
+  }
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -17,16 +29,16 @@ const Home = () => {
       reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://user-management-server-89shlupxx-jubair-ahmeds-projects.vercel.app/users/${_id}`, {
+        fetch(`http://localhost:5000/users/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            }
-            const remaining = users.filter((user) => user._id !== _id);
-            setUsers(remaining);
+            // if (data.deletedCount > 0) {
+            //   Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            // }
+            // const remaining = users.filter((user) => user._id !== _id);
+            // setUsers(remaining);
           });
       } else if (
         /* Read more about handling dismissals below */
